@@ -74,22 +74,7 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            String upit = "SELECT kupac_id AS 'ID kupca', ime AS 'Ime kupca', prezime AS 'Prezime kupca', grad AS Grad, adresa AS Adresa, telefon AS Telefon, user AS 'Korisnicko ime', pass AS Password FROM kupac";
-            try
-            {
-                MySqlConnection konekcija = new MySqlConnection(Form1.konekcioniString);
-                konekcija.Open();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(upit, konekcija);
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                dataGridView1.DataSource = tabela;
-                adapter.Dispose();
-                konekcija.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Insert();
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
@@ -115,6 +100,8 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Uspjesno ste kreirali novog korisnika!!!");
                 Clear();
             }
+
+            Insert();
         }
 
         private void textBox10_TextChanged(object sender, EventArgs e)
@@ -187,6 +174,28 @@ namespace WindowsFormsApplication1
 
                 if (test == 0) { MessageBox.Show("Azuriranje podataka nije izvrseno!!!"); }
                 else if (test > 0) { MessageBox.Show("Podaci su uspjesno azurirani!!!"); Clear(); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Insert();
+        }
+
+        private void Insert()
+        {
+            String upit = "SELECT kupac_id AS 'ID kupca', ime AS 'Ime kupca', prezime AS 'Prezime kupca', grad AS Grad, adresa AS Adresa, telefon AS Telefon, user AS 'Korisnicko ime', pass AS Password FROM kupac";
+            try
+            {
+                MySqlConnection konekcija = new MySqlConnection(Form1.konekcioniString);
+                konekcija.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(upit, konekcija);
+                DataTable tabela = new DataTable();
+                adapter.Fill(tabela);
+                dataGridView1.DataSource = tabela;
+                adapter.Dispose();
+                konekcija.Close();
             }
             catch (Exception ex)
             {

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50018
 File Encoding         : 65001
 
-Date: 2022-04-06 03:37:25
+Date: 2022-04-09 18:57:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,8 @@ INSERT INTO `artikal` VALUES ('1', 'iPhone 13 mini', 'Phone', '1300');
 INSERT INTO `artikal` VALUES ('2', 'iPhone 13 128GB', 'Phone', '1800');
 INSERT INTO `artikal` VALUES ('3', 'iPhone 13 Pro 256GB', 'Phone', '2800');
 INSERT INTO `artikal` VALUES ('4', 'MacBook Pro 16` 1TB', 'Laptop', '5100');
-INSERT INTO `artikal` VALUES ('5', null, null, null);
+INSERT INTO `artikal` VALUES ('12', 'iPhone 13 Pro Max 512GB', 'Phone', '3200');
+INSERT INTO `artikal` VALUES ('26', 'AirPods Pro', 'Headphones', '350');
 
 -- ----------------------------
 -- Table structure for `kupac`
@@ -90,10 +91,12 @@ CREATE TABLE `skladiste` (
 -- ----------------------------
 -- Records of skladiste
 -- ----------------------------
-INSERT INTO `skladiste` VALUES ('1', '1', '10');
-INSERT INTO `skladiste` VALUES ('2', '2', '12');
+INSERT INTO `skladiste` VALUES ('1', '1', '17');
+INSERT INTO `skladiste` VALUES ('2', '2', '10');
 INSERT INTO `skladiste` VALUES ('3', '3', '15');
-INSERT INTO `skladiste` VALUES ('4', '4', '22');
+INSERT INTO `skladiste` VALUES ('4', '4', '20');
+INSERT INTO `skladiste` VALUES ('12', '25', '50');
+INSERT INTO `skladiste` VALUES ('13', '26', '15');
 
 -- ----------------------------
 -- Table structure for `stavka_narudzbenice`

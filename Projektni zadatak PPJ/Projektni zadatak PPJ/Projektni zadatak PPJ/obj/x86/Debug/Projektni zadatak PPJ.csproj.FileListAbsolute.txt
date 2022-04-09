@@ -11,3 +11,5 @@ C:\Users\zoljs\Desktop\Projektni zadatak PPJ\Projektni zadatak PPJ\Projektni zad
 C:\Users\zoljs\Desktop\Projektni zadatak PPJ\Projektni zadatak PPJ\Projektni zadatak PPJ\obj\x86\Debug\WindowsFormsApplication1.Form3.resources
 C:\Users\zoljs\Desktop\Projektni zadatak PPJ\Projektni zadatak PPJ\Projektni zadatak PPJ\obj\x86\Debug\WindowsFormsApplication1.Form4.resources
 C:\Users\zoljs\Desktop\Projektni zadatak PPJ\Projektni zadatak PPJ\Projektni zadatak PPJ\obj\x86\Debug\WindowsFormsApplication1.Form5.resources
+C:\Users\zoljs\Desktop\Projektni zadatak PPJ - Copy\Projektni zadatak PPJ\Projektni zadatak PPJ\obj\x86\Debug\Projektni zadatak PPJ.exe
+C:\Users\zoljs\Desktop\Projektni zadatak PPJ - Copy\Projektni zadatak PPJ\Projektni zadatak PPJ\obj\x86\Debug\Projektni zadatak PPJ.pdb
