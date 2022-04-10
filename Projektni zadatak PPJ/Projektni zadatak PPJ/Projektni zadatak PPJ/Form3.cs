@@ -23,8 +23,7 @@ namespace WindowsFormsApplication1
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            Insert();
-            Insert2();
+            
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
@@ -37,7 +36,7 @@ namespace WindowsFormsApplication1
             try
             {
 
-                if (textBox1.Text == "" || textBox2.Text == "")
+                if (textBox1.Text == "" || textBox2.Text == "" || Convert.ToInt32(textBox2.Text)<=0)
                 {
                     MessageBox.Show("Greska prilikom unosa. Provjerite unesene podatke!!!");
                 }
@@ -49,20 +48,37 @@ namespace WindowsFormsApplication1
 
                     if (Kol <= test)
                     {
+                        MySqlConnection konekcija2 = new MySqlConnection(Form1.konekcioniString);
+                        konekcija2.Open();
+                        String sel = "SELECT * FROM stavka_narudzbenice WHERE artikal_id='" + ID + "' AND narudzbenica_id='" + NarMaxID + "'";
+                        MySqlCommand command = new MySqlCommand(sel,konekcija2);
+                        MySqlDataReader reader;
+                        reader = command.ExecuteReader();
+                        reader.Read();
+                        if (reader.HasRows)
+                        {
+                            String update="UPDATE skladiste SET kolicina_stanje=kolicina_stanje-'" + Kol + "' WHERE artikal_id='" + ID + "'";
+                            String add="UPDATE stavka_narudzbenice SET kolicina=kolicina+'" + Kol + "' WHERE artikal_id='" + ID + "' ";
+                            MySqlCommand ccc = new MySqlCommand(update,konekcija2);
+                            MySqlCommand aaa = new MySqlCommand(add,konekcija2);
+                            ccc.ExecuteNonQuery();
+                            aaa.ExecuteNonQuery();
+                            reader.Close();
+                        }
+                        reader.Close();
                         String upit1 = "INSERT INTO stavka_narudzbenice(artikal_id, narudzbenica_id, kolicina) VALUES " +
                             "('" + ID + "', '" + NarMaxID + "', '" + Kol + "')";
                         String upit2 = "UPDATE skladiste SET kolicina_stanje=kolicina_stanje-'" + Kol + "' WHERE artikal_id='" + ID + "'";
 
-                        MySqlConnection konekcija = new MySqlConnection(Form1.konekcioniString);
-                        konekcija.Open();
-                        MySqlCommand cmd1 = new MySqlCommand(upit1, konekcija);
-                        MySqlCommand cmd2 = new MySqlCommand(upit2, konekcija);
+                        
+                        MySqlCommand cmd1 = new MySqlCommand(upit1, konekcija2);
+                        MySqlCommand cmd2 = new MySqlCommand(upit2, konekcija2);
                         cmd1.ExecuteNonQuery();
                         cmd2.ExecuteNonQuery();
-                        konekcija.Close();
+                        konekcija2.Close();
                     }
                     else if (Kol > test) { MessageBox.Show("Trenutno na stanju nemamo tu kolicinu, molimo Vas unesite manji broj!"); }
-
+                  
                     Insert();
                     Insert2();
                 }
@@ -111,6 +127,7 @@ namespace WindowsFormsApplication1
             if (reader.HasRows) {NarMaxID = reader[0].ToString(); }
             reader.Close();
             konekcija.Close();
+            Insert();
         }
 
         private void Kolicina()
@@ -131,7 +148,7 @@ namespace WindowsFormsApplication1
 
         private void Insert2()
         {
-            String upit = "SELECT a.artikal_id AS 'ID artikla', naziv_artikla AS 'Naziv artikla', kolicina AS Kolicina, cijena AS 'Cijena artikla' FROM artikal a, stavka_narudzbenice s WHERE a.artikal_id=s.artikal_id";
+            String upit = "SELECT a.artikal_id AS 'ID artikla', naziv_artikla AS 'Naziv artikla', kolicina AS Kolicina, cijena AS 'Cijena artikla' FROM artikal a, stavka_narudzbenice sn WHERE a.artikal_id=sn.artikal_id AND sn.narudzbenica_id='" + NarMaxID + "' ";
             try
             {
                 MySqlConnection konekcija = new MySqlConnection(Form1.konekcioniString);
@@ -141,6 +158,16 @@ namespace WindowsFormsApplication1
                 adapter.Fill(tabela);
                 dataGridView2.DataSource = tabela;
                 adapter.Dispose();
+                String total = "SELECT SUM(cijena*kolicina) FROM artikal a, stavka_narudzbenice sn WHERE a.artikal_id=sn.artikal_id AND narudzbenica_id='" + NarMaxID + "'";
+                MySqlCommand tot = new MySqlCommand(total, konekcija);
+                MySqlDataReader citac;
+                citac = tot.ExecuteReader();
+                citac.Read();
+                if (citac.HasRows)
+                {
+                    textBox3.Text = citac[0].ToString();
+                }
+                citac.Close();
                 konekcija.Close();
             }
             catch (Exception ex)
@@ -193,6 +220,20 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(ex.Message);
             }
             Insert2();
+        }
+
+        private void kreiranjeNarudzbeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 fr3 = new Form3();
+            this.Hide();
+            fr3.Show();
+        }
+
+        private void prikazNarudzbiIStavkiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form6 fr6 = new Form6();
+            this.Hide();
+            fr6.Show();
         }
     }
 }

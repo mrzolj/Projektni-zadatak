@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50018
 File Encoding         : 65001
 
-Date: 2022-04-09 18:57:58
+Date: 2022-04-06 16:12:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -76,6 +76,8 @@ CREATE TABLE `narudzbenica` (
 -- ----------------------------
 -- Records of narudzbenica
 -- ----------------------------
+INSERT INTO `narudzbenica` VALUES ('1', '7', '2022-03-17');
+INSERT INTO `narudzbenica` VALUES ('2', '8', '2022-02-21');
 
 -- ----------------------------
 -- Table structure for `skladiste`
@@ -91,11 +93,11 @@ CREATE TABLE `skladiste` (
 -- ----------------------------
 -- Records of skladiste
 -- ----------------------------
-INSERT INTO `skladiste` VALUES ('1', '1', '17');
-INSERT INTO `skladiste` VALUES ('2', '2', '10');
+INSERT INTO `skladiste` VALUES ('1', '1', '10');
+INSERT INTO `skladiste` VALUES ('2', '2', '12');
 INSERT INTO `skladiste` VALUES ('3', '3', '15');
-INSERT INTO `skladiste` VALUES ('4', '4', '20');
-INSERT INTO `skladiste` VALUES ('12', '25', '50');
+INSERT INTO `skladiste` VALUES ('4', '4', '22');
+INSERT INTO `skladiste` VALUES ('12', '25', '1');
 INSERT INTO `skladiste` VALUES ('13', '26', '15');
 
 -- ----------------------------

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,11 +47,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kreiranjeNarudzbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prikazNarudzbiIStavkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -70,6 +75,7 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.menuStrip1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 27);
             this.groupBox1.Name = "groupBox1";
@@ -77,6 +83,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kreiranje narudzbe";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(424, 481);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 14;
             // 
             // label6
             // 
@@ -121,6 +134,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(74, 22);
             this.textBox3.TabIndex = 9;
+            this.textBox3.Text = "0";
             // 
             // textBox2
             // 
@@ -206,12 +220,39 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // textBox4
+            // menuStrip1
             // 
-            this.textBox4.Location = new System.Drawing.Point(424, 481);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 14;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 18);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(567, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kreiranjeNarudzbeToolStripMenuItem,
+            this.prikazNarudzbiIStavkiToolStripMenuItem});
+            this.menuToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // kreiranjeNarudzbeToolStripMenuItem
+            // 
+            this.kreiranjeNarudzbeToolStripMenuItem.Name = "kreiranjeNarudzbeToolStripMenuItem";
+            this.kreiranjeNarudzbeToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.kreiranjeNarudzbeToolStripMenuItem.Text = "Kreiranje narudzbe";
+            this.kreiranjeNarudzbeToolStripMenuItem.Click += new System.EventHandler(this.kreiranjeNarudzbeToolStripMenuItem_Click);
+            // 
+            // prikazNarudzbiIStavkiToolStripMenuItem
+            // 
+            this.prikazNarudzbiIStavkiToolStripMenuItem.Name = "prikazNarudzbiIStavkiToolStripMenuItem";
+            this.prikazNarudzbiIStavkiToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.prikazNarudzbiIStavkiToolStripMenuItem.Text = "Prikaz narudzbi i stavki";
+            this.prikazNarudzbiIStavkiToolStripMenuItem.Click += new System.EventHandler(this.prikazNarudzbiIStavkiToolStripMenuItem_Click);
             // 
             // Form3
             // 
@@ -221,6 +262,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(624, 640);
             this.Controls.Add(this.groupBox1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kreiranje narudzbe";
@@ -231,6 +273,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +298,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kreiranjeNarudzbeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prikazNarudzbiIStavkiToolStripMenuItem;
     }
 }
